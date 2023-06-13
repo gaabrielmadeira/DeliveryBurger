@@ -24,7 +24,7 @@ const StyledTextThree = css`
   font-size: var(--font-size-3);
   line-height: 24px;
 
-  color: ${({fontColor}) => fontColor === "green" ? "var(--color-color-primary)" : fontColor === "grey-300" ? "var(--color-grey-300)" : "var(--color-grey-600)"};
+  color: ${({fontColor}) => fontColor === "green" ? "var(--color-primary)" : fontColor === "grey-300" ? "var(--color-grey-300)" : "var(--color-grey-600)"};
 `
 export const StyledParagraph = styled.p`
   ${StyledTextOne};

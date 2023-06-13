@@ -9,9 +9,9 @@ export const Header = ({ callback, SetOpenModal, productCart }) => {
   return (
     <StyledHeader>
       <StyledHeaderContainer>
-        <StyledHeaderIcons onClick={() => SetOpenModal(true)}>
+        <StyledHeaderIcons display="flex">
           <img src={BurgerKenzie} alt="Logo do KenzieBurguer" />
-          <StyledIcon>
+          <StyledIcon onClick={() => SetOpenModal(true)}>
             <img className="cartIcon" src={cart} alt="Logo com a quantidade de produtos no carrinho de compras" />
             <span className="amountProduct">{productCart.length}</span>
           </StyledIcon>

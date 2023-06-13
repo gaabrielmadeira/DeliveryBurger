@@ -6,9 +6,15 @@ export const StyledHeader = styled.header`
   
   background: var(--color-grey-0);
   display: flex;
-  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+
+  @media(min-width: 950px){
+    height: 80px;
+  }
 `
 export const StyledHeaderIcons = styled.div`
+  width: clamp(250px, 100%, 900px);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -26,7 +32,7 @@ export const StyledIcon = styled.button`
   .amountProduct{
     width: 20px;
     height: 24px;
-    background: var(--color-color-primary);
+    background: var(--color-primary);
     border-radius: 7px;
 
     z-index: 2;

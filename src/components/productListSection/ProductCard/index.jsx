@@ -2,7 +2,12 @@ import { StyledTitleTwo, StyledSpanBig, StyledSpanSmall } from "../../../styles/
 import { StyledButtonPrimary } from "../../../styles/button";
 import { StyledProductsCards } from "./style";
 
-export const ProductCard = ({ id, name, category, price, img, setProductCart }) => {
+export const ProductCard = ({ id, name, category, price, img, setProductCart}) => {
+
+  const formattedPrice = price.toLocaleString('pt-BR', {
+    style: 'currency',
+    currency: 'BRL',
+  });
 
   const handleProductItem = () => {
     const productItem = {
@@ -17,11 +22,13 @@ export const ProductCard = ({ id, name, category, price, img, setProductCart }) 
 
   return (
     <StyledProductsCards>
-      <img className="imgCard" src={img} alt={`ìmagem do produto ${name}`} />
-      <div>
+      <div className="imgCard">
+        <img src={img} alt={`ìmagem do produto ${name}`} width="150px" height="150px" />
+      </div>
+      <div className="content">
         <StyledTitleTwo>{name}</StyledTitleTwo>
         <StyledSpanSmall>{category}</StyledSpanSmall>
-        <StyledSpanBig fontColor="green">{price}</StyledSpanBig>
+        <StyledSpanBig fontColor="green">{formattedPrice}</StyledSpanBig>
         <StyledButtonPrimary onClick={handleProductItem}>Adicionar</StyledButtonPrimary>
       </div>
     </StyledProductsCards>

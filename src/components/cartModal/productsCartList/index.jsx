@@ -1,8 +1,9 @@
+import {StyledProducts} from "./style";
 
 export const ProductsCartList = ({ children }) => {
   return (
-    <ul>
+    <StyledProducts>
       {children}
-    </ul>
+    </StyledProducts>
   )
 }

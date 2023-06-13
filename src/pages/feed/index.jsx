@@ -4,6 +4,8 @@ import { useState } from "react";
 import { api } from "../../services/api";
 import { useEffect } from "react";
 import { ProductCard } from "../../components/productListSection/ProductCard";
+import {StyledListSectionContainer} from "../../styles/container";
+import {MainCentralize} from "./style";
 
 export const Feed = ({ SetOpenModal, setProductCart, productCart }) => {
   const [products, setProducts] = useState([]);
@@ -44,24 +46,26 @@ export const Feed = ({ SetOpenModal, setProductCart, productCart }) => {
         SetOpenModal={SetOpenModal}
         productCart={productCart}
       />
-      <main>
-        <ProductList>
-          {loading && <div>Loading...</div>}
-          {
-            products.map((product) =>
-              <ProductCard
-                setProductCart={setProductCart}
-                key={product.id}
-                id={product.id}
-                name={product.name}
-                category={product.category}
-                price={product.price}
-                img={product.img}
-              />
-            )
-          }
-        </ ProductList>
-      </main>
+      <MainCentralize>
+        <StyledListSectionContainer right="not">
+          <ProductList>
+            {loading && <div>Loading...</div>}
+            {
+              products.map((product) =>
+                <ProductCard
+                  setProductCart={setProductCart}
+                  key={product.id}
+                  id={product.id}
+                  name={product.name}
+                  category={product.category}
+                  price={product.price}
+                  img={product.img}
+                />
+              )
+            }
+          </ ProductList>
+        </StyledListSectionContainer>
+      </MainCentralize>
     </>
   )
 }
