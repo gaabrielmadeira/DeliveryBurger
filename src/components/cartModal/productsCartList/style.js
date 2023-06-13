@@ -9,4 +9,17 @@ export const StyledProducts = styled.ul`
   gap: 1.125rem;
 
   overflow-y: auto;
+
+  ::-webkit-scrollbar{
+    width: 5px;
+  }
+
+  ::-webkit-scrollbar-thumb{
+    background: var(--color-grey-300);
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-track{
+    background: var(--color-grey-0);
+  }
 `
