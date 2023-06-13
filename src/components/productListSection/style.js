@@ -13,6 +13,9 @@ export const StyledList = styled.ul`
   overflow-y: auto;
 
   .loading {
+  position: absolute;
+  top: 50%;
+  right: 50%;
   width: 50px;
   height: 50px;
   border: 5px solid var(--color-grey-100);
@@ -29,7 +32,7 @@ export const StyledList = styled.ul`
     transform: rotate(360deg);
   }
 }
-
+  
   @media(min-width: 950px){
     flex-wrap: wrap;
   }

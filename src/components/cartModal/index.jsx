@@ -17,7 +17,7 @@ export const CartModal = ({ SetOpenModal, productCart, setProductCart }) => {
       }
     }
 
-      window.addEventListener("mousedown", handleOutClick);
+      window.addEventListener("mousedown", handleOutClick); 
 
     return () => {
 
