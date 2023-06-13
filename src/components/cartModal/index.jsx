@@ -50,7 +50,7 @@ export const CartModal = ({ SetOpenModal, productCart, setProductCart }) => {
         {productCart.length === 0 ? <EmptyCart /> :
           <StyledContentContainer>
             <ProductsCartList>
-              {productCart.map((product) => < CardProduct deleteCartProduct={deleteCartProduct} key={product.id} id={product.id} name={product.name} img={product.img} />)}
+              {productCart.map((product) => < CardProduct deleteCartProduct={deleteCartProduct} productCart={productCart} key={product.id} id={product.id} name={product.name} img={product.img} />)}
             </ProductsCartList>
             <CartTotal productCart={productCart} setProductCart={setProductCart} />
           </StyledContentContainer>

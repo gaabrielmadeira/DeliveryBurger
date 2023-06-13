@@ -7,7 +7,7 @@ import { ProductCard } from "../../components/productListSection/ProductCard";
 import { StyledListSectionContainer } from "../../styles/container";
 import { MainCentralize } from "./style";
 
-export const Feed = ({ SetOpenModal, setProductCart, productCart }) => {
+export const Feed = ({ SetOpenModal, setProductCart, productCart, notify }) => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
   const [search, setSearch] = useState("");
@@ -38,7 +38,6 @@ export const Feed = ({ SetOpenModal, setProductCart, productCart }) => {
 
   }, [search])
 
-
   return (
     <>
       <Header
@@ -53,6 +52,8 @@ export const Feed = ({ SetOpenModal, setProductCart, productCart }) => {
             {
               products.map((product) =>
                 <ProductCard
+                  notify={notify}
+                  productCart={productCart}
                   setProductCart={setProductCart}
                   key={product.id}
                   id={product.id}

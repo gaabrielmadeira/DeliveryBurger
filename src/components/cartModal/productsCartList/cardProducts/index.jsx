@@ -2,12 +2,12 @@ import trash from "../../../../assets/trash.svg";
 import { StyledTitleTwo } from "../../../../styles/typograph";
 import { StyledProductsCard, StyledProductName } from "./style";
 
-export const CardProduct = ({ name, img, id, deleteCartProduct }) => {
+export const CardProduct = ({ name, img, id, deleteCartProduct}) => {
  
   const handleDeleteClick = () => {
     deleteCartProduct(id);
   };
-
+  
   return (
     <StyledProductsCard >
       <img className="ProductImage" src={img} alt={`imagem do produto ${name}`} />

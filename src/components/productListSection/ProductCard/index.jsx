@@ -2,7 +2,8 @@ import { StyledTitleTwo, StyledSpanBig, StyledSpanSmall } from "../../../styles/
 import { StyledButtonPrimary } from "../../../styles/button";
 import { StyledProductsCards } from "./style";
 
-export const ProductCard = ({ id, name, category, price, img, setProductCart}) => {
+
+export const ProductCard = ({ id, name, category, price, img, setProductCart,  productCart, notify}) => {
 
   const formattedPrice = price.toLocaleString('pt-BR', {
     style: 'currency',
@@ -17,7 +18,23 @@ export const ProductCard = ({ id, name, category, price, img, setProductCart}) =
       img
     }
 
-    setProductCart(productCart => [...productCart, productItem])
+    setProductCart(prevProductCart => [...prevProductCart, productItem])
+  }
+
+  function checkDuplicateId(productId) {
+    const duplicateIndex = productCart.findIndex(product => product.id === productId);
+  
+    if (duplicateIndex !== -1) {
+      productCart.splice(duplicateIndex, 1);
+      notify();
+    }
+  
+    return null;
+  }
+
+  const handleClick = () =>{
+    handleProductItem()
+    checkDuplicateId(id)
   }
 
   return (
@@ -29,7 +46,7 @@ export const ProductCard = ({ id, name, category, price, img, setProductCart}) =
         <StyledTitleTwo>{name}</StyledTitleTwo>
         <StyledSpanSmall>{category}</StyledSpanSmall>
         <StyledSpanBig fontColor="green">{formattedPrice}</StyledSpanBig>
-        <StyledButtonPrimary onClick={handleProductItem}>Adicionar</StyledButtonPrimary>
+        <StyledButtonPrimary onClick={handleClick}>Adicionar</StyledButtonPrimary>
       </div>
     </StyledProductsCards>
   )
